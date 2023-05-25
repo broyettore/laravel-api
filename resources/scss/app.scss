@@ -1,0 +1,11 @@
+@import "~bootstrap/scss/bootstrap";
+
+a {
+    text-decoration: none;
+}
+
+.project-img > img,
+#file-image-preview {
+    height: 400px;
+}
+
