@@ -12,7 +12,7 @@ class ProjectController extends Controller
     
     public function index() {
 
-        $projects = Project::all();
+        $projects = Project::with("Type", "Technologies")->get();
 
         return response()->json([
             "success" => true,
@@ -20,3 +20,5 @@ class ProjectController extends Controller
         ]);
     }
 }
+
+
