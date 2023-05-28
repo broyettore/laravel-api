@@ -47,7 +47,7 @@ class TypeController extends Controller
         $newType->fill($data);
         $newType->save();
 
-        return to_route("admin.types.show", $newType->id)->with("message", "Type created successfully");
+        return to_route("admin.types.show", $newType->slug)->with("message", "Type created successfully");
     }
 
     /**

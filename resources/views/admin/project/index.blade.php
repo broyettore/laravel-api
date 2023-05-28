@@ -32,13 +32,13 @@
                 <td>{{ $project->progress_status }}</td>
                 <td>
                   <div class="d-flex">
-                    <a href="{{ route("admin.projects.show", $project->id)}}" class="btn btn-primary me-1">
+                    <a href="{{ route("admin.projects.show", $project->slug)}}" class="btn btn-primary me-1">
                       Show
                       </a>
-                      <a href="{{ route("admin.projects.edit", $project->id)}}" class="btn btn-secondary me-1">
+                      <a href="{{ route("admin.projects.edit", $project->slug)}}" class="btn btn-secondary me-1">
                         <i class="fa-solid fa-pen text-light"></i>
                       </a>
-                      <button type="submit" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#project-{{ $project->id }}">
+                      <button type="submit" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#project-{{ $project->slug }}">
                         <i class="fa-solid fa-trash text-light"></i>
                       </button>
 

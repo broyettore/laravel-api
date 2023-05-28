@@ -24,17 +24,17 @@
                 <td>{{ $type->slug }}</td>
                 <td>
                   <div class="d-flex">
-                    <a href="{{ route("admin.types.show", $type->id)}}" class="btn btn-primary me-1">
+                    <a href="{{ route("admin.types.show", $type->slug)}}" class="btn btn-primary me-1">
                       Show
                       </a>
-                      <a href="{{ route("admin.types.edit", $type->id)}}" class="btn btn-secondary me-1">
+                      <a href="{{ route("admin.types.edit", $type->slug)}}" class="btn btn-secondary me-1">
                         <i class="fa-solid fa-pen text-light"></i>
                       </a>
-                      <button type="submit" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#type-{{ $type->id }}">
+                      <button type="submit" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#type-{{ $type->slug }}">
                         <i class="fa-solid fa-trash text-light"></i>
                       </button>
 
-                    <div class="modal fade" id="type-{{ $type->id }}" tabindex="-1"  aria-hidden="true">
+                    <div class="modal fade" id="type-{{ $type->slug }}" tabindex="-1"  aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -42,7 +42,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                              Are you sure you want to delete project <strong>{{ $type->id }}</strong>?
+                              Are you sure you want to delete project <strong>{{ $type->slug }}</strong>?
                           </div>
                           <div class="modal-footer">
                               <form action="{{ route('admin.types.destroy', $type) }}" method="POST">

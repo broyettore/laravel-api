@@ -62,7 +62,7 @@ class ProjectController extends Controller
             $newProject->technologies()->sync($data['technologies']);
         }
 
-        return to_route("admin.projects.show", $newProject->id)->with("message", "Project created successfully");
+        return to_route("admin.projects.show", $newProject->slug)->with("message", "Project created successfully");
     }
 
     /**

@@ -9,7 +9,7 @@
         <ul class="list-group">
             @foreach ($type->projects as $project)
             <li class="list-group-item">
-                <a href="{{ route("admin.projects.edit", $project->id) }}">{{ $project->name }}</a>
+                <a href="{{ route("admin.projects.edit", $project->slug) }}">{{ $project->name }}</a>
             </li>     
             @endforeach
           </ul>
