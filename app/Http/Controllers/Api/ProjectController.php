@@ -12,7 +12,7 @@ class ProjectController extends Controller
     
     public function index() {
 
-        $projects = Project::with("Type", "Technologies")->get();
+        $projects = Project::with("Type", "Technologies")->paginate(6);
 
         return response()->json([
             "success" => true,
@@ -24,19 +24,29 @@ class ProjectController extends Controller
 
         $project = Project::where("slug", $slug)->with("Type", "Technologies")->first();
 
-        if($project) {
+        try {
 
-            return response()->json([
-                "success" => true,
-                "result" => $project
-            ]);
-        } else {
+            if($project) {
 
+                return response()->json([
+                    "success" => true,
+                    "result" => $project
+                ]);
+            } else {
+    
+                return response()->json([
+                    "success" => false,
+                    "result" => null
+                ], 404);
+            }
+        } catch (\Throwable $th) {
+             
             return response()->json([
                 "success" => false,
                 "result" => null
-            ], 404);
+            ], 500);
         }
+
     }
 }
 
