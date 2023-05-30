@@ -22,6 +22,7 @@ class LeadSeeder extends Seeder
             
             $lead = new Lead();
             $lead->name = fake()->name;
+            $lead->email = fake()->email();
             $lead->content = fake()->text();
             $lead->project_id = $project->id;
             $lead->save();

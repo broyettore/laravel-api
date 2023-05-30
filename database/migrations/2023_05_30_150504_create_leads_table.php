@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->string("name", 80);
+            $table->string("email", 80);
             $table->text("content");
             $table->foreignId("project_id")->constrained()->cascadeOnDelete();
             $table->timestamps();
