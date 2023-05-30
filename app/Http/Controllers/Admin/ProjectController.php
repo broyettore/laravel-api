@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Type;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Lead;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Storage;
 use illuminate\Support\Str;
@@ -73,6 +74,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+
         return view('admin.project.show', compact('project'));
     }
 

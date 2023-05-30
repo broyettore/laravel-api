@@ -31,6 +31,26 @@
             <li class="list-group-item">End date: {{ $project->end }}</li>
             <li class="list-group-item">Progress: {{ $project->progress_status }}</li>
           </ul>
+          <hr>
+          @if ($project->leads->count())
+          <div class="leads">
+            <h3>Leads</h3>
+            <ul class="ps-0">
+                @foreach ($project->leads as $lead)
+                <li class="list-unstyled mb-3">
+                    <h4>Lead: {{ $lead->name }}</h4>
+                    <p>Message: {{ $lead->content }}</p>
+                    <form action="{{ route('admin.leads.destroy', $lead) }}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </li>
+                <hr>
+                @endforeach
+            </ul>
+          </div>
+          @endif
     </div>
     <button type="button" class="btn btn-primary mb-3">
         <a href="{{ route("admin.projects.index") }}" class="text-light">Back to Menu</a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
@@ -27,6 +28,11 @@ Route::middleware('auth')->prefix("admin")->name("admin.")->group(function () {
 
     Route::resource('projects', ProjectController::class)->parameters(['projects'=>'project:slug']);
     Route::resource('types', TypeController::class)->parameters(['types'=>'type:slug']);
+
+    // route delete leads
+    Route::delete('leads/{lead}', [LeadController::class, "destroy"])->name("leads.destroy");
+
+    
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

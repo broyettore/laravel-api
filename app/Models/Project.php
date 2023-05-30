@@ -21,6 +21,10 @@ class Project extends Model
         return $this->belongsToMany(Technology::class);
     }
 
+    public function leads() {
+        return $this->hasMany(Lead::class);
+    }
+
     // protected function name(): CastsAttribute {
     //     return CastsAttribute::make(
     //         get: fn (string $value) => strtoupper($value),

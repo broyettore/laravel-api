@@ -24,7 +24,8 @@
             <tbody>
                 @foreach ($projects as $project)
               <tr>
-                <th scope="row">{{ $project->name }}</th>
+                <th scope="row">{{ $project->name }} @if ($project->leads->count())
+                  <small>({{ $project->leads->count() }} leads)</small>@endif</th>
                 <td>{{ $project->description }}</td>
                 <td>{{ $project->client }}</td>
                 <td>{{ $project->start }}</td>
